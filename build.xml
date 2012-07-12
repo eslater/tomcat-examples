@@ -24,11 +24,23 @@
   </target>
   
   <target name="build" depends="compile">
-    <copy todir="war/WEB-INF/">
+    <copy todir="war/">
       <fileset dir="resources">
         <include name="*.html" />
         <include name="*.jsp" />
+      </fileset>
+    </copy>
+    <copy todir="war/WEB-INF">
+      <fileset dir="resources">
         <include name="web.xml" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="deploy" depends="build">
+    <copy todir="${CATALINA_HOME}/webapps/ROOT/">
+      <fileset dir="war/">
+        <include name="**/*" />
       </fileset>
     </copy>
   </target>

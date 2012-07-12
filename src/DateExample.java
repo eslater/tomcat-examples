@@ -15,7 +15,7 @@ public class DateExample extends HttpServlet {
     out.println("<html>");
     out.println("<head>");
     out.println("<body>");
-    out.println(date.toString());
+    out.println("Hello! the time is now " + date.toString());
     out.println("</head>");
     out.println("</body>");
     out.println("</html>");
