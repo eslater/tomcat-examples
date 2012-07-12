@@ -1,0 +1,24 @@
+<project name="Guestbook Highrep" default="compile">
+  <property name="CATALINA_HOME" location="/home/eslater/apache-tomcat-6.0.35" />
+
+  <path id="project.classpath">
+    <fileset dir="${CATALINA_HOME}/lib">
+      <include name="**/*.jar" />
+    </fileset>
+  </path>
+
+  <target name="compile">
+    <mkdir dir="war/WEB-INF/classes" />
+    <copy todir="war/WEB-INF/classes">
+      <fileset dir="src">
+        <exclude name="**/*.java" />
+      </fileset>
+    </copy>
+    <javac
+        srcdir="src"
+        destdir="war/WEB-INF/classes"
+        classpathref="project.classpath"
+        debug="on" 
+        includeantruntime="false"/>
+  </target>
+</project>
