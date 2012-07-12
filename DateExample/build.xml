@@ -1,4 +1,5 @@
 <project name="Guestbook Highrep" default="compile">
+
   <property name="CATALINA_HOME" location="/home/eslater/apache-tomcat-6.0.35" />
 
   <path id="project.classpath">
@@ -21,4 +22,15 @@
         debug="on" 
         includeantruntime="false"/>
   </target>
+  
+  <target name="build" depends="compile">
+    <copy todir="war/WEB-INF/">
+      <fileset dir="resources">
+        <include name="*.html" />
+        <include name="*.jsp" />
+        <include name="web.xml" />
+      </fileset>
+    </copy>
+  </target>
+
 </project>
