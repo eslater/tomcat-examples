@@ -11,16 +11,7 @@ public class FormExample extends HttpServlet {
 
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
-    String username = request.getParameter("username"); 
-    PrintWriter out = response.getWriter();
-    out.println(
-      "<HTML>" +
-      "<BODY>" +
-      "Hello " +
-      request.getParameter("username") + "!\n" +
-      "</BODY>" + 
-      "</HTML>"
-    );
+    request.getRequestDispatcher("table.jsp").forward(request, response);
   }
 }
 
