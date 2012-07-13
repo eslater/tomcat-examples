@@ -1,8 +1,8 @@
 <html>
   <body>
-    <form method=POST action=form>
-    What's your name? <input type=TEXT name=username size=20><BR>
-    <input type=SUBMIT value=Submit>
+    <form method=post action="/form?>
+    What's your name? <input type=test name=username size=20><br>
+    <input type=submit value=Submit>
     </form>
   </body>
 </html>
