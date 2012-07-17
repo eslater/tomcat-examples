@@ -8,7 +8,7 @@ public class InsertExample extends HttpServlet {
 
   String driver = "org.apache.derby.jdbc.EmbeddedDriver";
   String dbName= "dbDemo";
-  String connectionURL = "jdbc:derby:" + dbName + ";create=false";
+  String connectionURL = "jdbc:derby:Databases/" + dbName + ";create=false";
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
@@ -49,8 +49,8 @@ public class InsertExample extends HttpServlet {
       Connection conn = DriverManager.getConnection(connectionURL);
       PreparedStatement psInsert = conn.prepareStatement("insert into Person(name) values '" + guestname + "'");
       psInsert.executeUpdate();
-    } catch (Throwable e) {
-      System.out.println("JDBC Error: " + e.toString());
+    } catch (Exception e) {
+      e.printStackTrace();
     }
   }
 }

@@ -9,7 +9,7 @@ public class SelectExample extends HttpServlet {
 
   String driver = "org.apache.derby.jdbc.EmbeddedDriver";
   String dbName= "dbDemo";
-  String connectionURL = "jdbc:derby:" + dbName + ";create=false";
+  String connectionURL = "jdbc:derby:Databases/" + dbName + ";create=false";
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
@@ -37,7 +37,7 @@ public class SelectExample extends HttpServlet {
       out.println("</body>");
       out.println("</html>");
     } catch (Throwable e) {
-      System.out.println("JDBC Error: " + e.toString());
+      e.printStackTrace();
     }
     
     
