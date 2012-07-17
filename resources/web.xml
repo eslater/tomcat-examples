@@ -24,6 +24,16 @@
       <servlet-class>FormExample</servlet-class>
     </servlet>
 
+    <servlet>
+      <servlet-name>InsertExample</servlet-name>
+      <servlet-class>InsertExample</servlet-class>
+    </servlet>
+    
+    <servlet>
+      <servlet-name>SelectExample</servlet-name>
+      <servlet-class>SelectExample</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>DateExample</servlet-name>
         <url-pattern>/dateAsServlet</url-pattern>
@@ -31,7 +41,18 @@
 
     <servlet-mapping>
         <servlet-name>FormExample</servlet-name>
-        <url-pattern>/form</url-pattern>
+        <url-pattern>/formAsServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+      <servlet-name>InsertExample</servlet-name>
+      <url-pattern>/insert</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>SelectExample</servlet-name>
+      <url-pattern>/select</url-pattern>
     </servlet-mapping>
 
 </web-app>
