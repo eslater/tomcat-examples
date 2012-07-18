@@ -28,12 +28,12 @@ public class SelectExample extends HttpServlet {
       Statement select = conn.createStatement();
       guests = select.executeQuery("select name from Person");
       out.println("<html>");
-      out.println("<head>");
       out.println("<body>");
+      out.println("<ul>");
       while (guests.next()){
-        out.println(guests.getString(1));
+        out.println("<li>" + guests.getString(1) + "</li>");
       }
-      out.println("</head>");
+      out.println("</ul>");
       out.println("</body>");
       out.println("</html>");
     } catch (Throwable e) {

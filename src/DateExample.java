@@ -13,10 +13,8 @@ public class DateExample extends HttpServlet {
     Date date = new Date();
 
     out.println("<html>");
-    out.println("<head>");
     out.println("<body>");
     out.println("Hello! the time is now " + date.toString());
-    out.println("</head>");
     out.println("</body>");
     out.println("</html>");
   }

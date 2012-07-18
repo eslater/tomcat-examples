@@ -10,12 +10,10 @@ public class FormExample extends HttpServlet {
     PrintWriter out = response.getWriter();    
     
     out.println("<html>");
-    out.println("<head>");
     out.println("<body>");
     out.println("<form method=post action=\"/formAsServlet\">");
     out.println("What's your name? <input type=test name=guestname size=20><br>");
     out.println("<input type=submit value=Submit>");
-    out.println("</head>");
     out.println("</body>");
     out.println("</html>");
 
