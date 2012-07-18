@@ -2,19 +2,16 @@ import java.io.*;
 import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import java.sql.*;
 
 public class InsertExample extends HttpServlet {
-
-  String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-  String dbName= "dbDemo";
-  String connectionURL = "jdbc:derby:Databases/" + dbName + ";create=false";
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
 
+    //get an output stream from the response object    
     PrintWriter out = response.getWriter();    
-    
+   
+    //display the form 
     out.println("<html>");
     out.println("<body>");
     out.println("<form method=post action=\"/insert\">");
@@ -26,29 +23,33 @@ public class InsertExample extends HttpServlet {
 
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
-    
+
+    //get an output stream from the response object    
     PrintWriter out = response.getWriter();    
-   
+  
+    //retrieve inputs from the request
     String guestname = request.getParameter("guestname");
-   
-    out.println("<html>");
-    out.println("<body>");
-    out.println("Hello " + guestname + "! You have been inserted into the database!");
-    out.println("</body>");
-    out.println("</html>");
 
-    try {
-      Class.forName(driver);
-    } catch(java.lang.ClassNotFoundException e) {
-      System.out.println("failed to load Derby embedded driver " + e.toString());
-    }
+    //initialize derby 
+    DerbyUtils.loadDB();
 
-    try {
-      Connection conn = DriverManager.getConnection(connectionURL);
-      PreparedStatement psInsert = conn.prepareStatement("insert into Person(name) values '" + guestname + "'");
-      psInsert.executeUpdate();
-    } catch (Exception e) {
-      e.printStackTrace();
+    //insert name into databse  
+    boolean insertSuccess = DerbyUtils.insertName(guestname); 
+
+
+    //display success message if insert succeeeds, display error message otherwise
+    if (insertSuccess){
+      out.println("<html>");
+      out.println("<body>");
+      out.println("Hello " + guestname + "! You have been inserted into the database!");
+      out.println("</body>");
+      out.println("</html>");
+    } else {
+      out.println("<html>");
+      out.println("<body>");
+      out.println("Failed to insert into database. Check logs for errors.");
+      out.println("</body>");
+      out.println("</html>");
     }
   }
 }
