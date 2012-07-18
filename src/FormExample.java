@@ -14,7 +14,7 @@ public class FormExample extends HttpServlet {
     //display the form 
     out.println("<html>");
     out.println("<body>");
-    out.println("<form method=post action=\"/formAsServlet\">");
+    out.println("<form method=post action=\"/formExample\">");
     out.println("What's your name? <input type=text name=guestname size=20><br>");
     out.println("<input type=submit value=Submit>");
     out.println("</form>");
