@@ -3,12 +3,13 @@ import java.util.ArrayList;
 
 public class DerbyUtils {
 
+  //derby config
   private static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver"; 
   private static final String CONNECTION_URL = "jdbc:derby:Databases/dbDemo;create=false";
 
   public static boolean loadDB() {
     try {
-      Class.forName(DRIVER);
+      Class.forName(DRIVER); //load derby driver
     } catch(java.lang.ClassNotFoundException e) {
       System.out.println("failed to load Derby embedded driver " + e.toString());
       return false;

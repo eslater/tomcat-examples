@@ -7,9 +7,11 @@ public class FormExample extends HttpServlet {
 
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
-
-    PrintWriter out = response.getWriter();    
     
+    //get an output stream from the response object
+    PrintWriter out = response.getWriter();    
+   
+    //display the form 
     out.println("<html>");
     out.println("<body>");
     out.println("<form method=post action=\"/formAsServlet\">");
@@ -23,8 +25,10 @@ public class FormExample extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
     
+    //get an output stream from the response object
     PrintWriter out = response.getWriter();    
     
+    //display the form 
     out.println("<html>");
     out.println("<body>");
     out.println("Hello " + request.getParameter("guestname"));
