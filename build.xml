@@ -1,6 +1,7 @@
 <project name="Guestbook Highrep" default="compile">
-
-  <property name="CATALINA_HOME" location="/home/eslater/apache-tomcat-6.0.35" />
+  
+  <property environment="env"/>
+  <property name="CATALINA_HOME" value="${env.CATALINA_HOME}" />
 
   <path id="project.classpath">
     <fileset dir="${CATALINA_HOME}/lib">
