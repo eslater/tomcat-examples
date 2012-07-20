@@ -1,0 +1,20 @@
+#Deployment Instructions#
+
+1.) Install Java. Make sure JAVA_HOME env var is set to the root of your jdk. You need the jdk, a jre only will not suffice.
+
+2.) Install tomcat. I used tomcat 6. Download the core distribution from the apache website as a tar or zip. Set CATALINA_HOME to the root of your tomcat installation.
+
+3.) Inside the root of your tomcat installation add a directory named Databases.
+
+4.) Extract misc/dbDemo.zip into the Databases directory created above.
+
+5.) copy misc/derby.jar into $CATALINA_HOME/lib
+
+6.) open $CATALINA_HOME/conf/catalina.properties and add the following line.
+    derby.system.home = 'path to Databases directory created in step (3.)'
+
+7.) replcace $CATALINA_HOME/conf/server.xml with misc/server.xml
+
+8.) run ant deploy in the root of the repo
+
+9.) start tomcat by running startup.sh in $CATALINA_HOME/bin
